@@ -1,3 +1,5 @@
+
+import 'package:chatbot_flutter/pages/login/introduce_page.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -15,17 +17,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       builder: DevicePreview.appBuilder,
-      home: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text("sse"), // Thêm tiêu đề AppBar
-          ),
-        
-        ),
-      ),
       debugShowCheckedModeBanner: false,
+
+      home:  IntroducePage(), // Đặt WelcomePage vào thuộc tính body
     );
   }
 }
