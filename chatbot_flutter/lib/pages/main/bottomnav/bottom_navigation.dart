@@ -1,7 +1,9 @@
+import 'package:chatbot_flutter/pages/main/bottomnav/chat/chat_page.dart';
+import 'package:chatbot_flutter/pages/main/bottomnav/contacts/contacts_page.dart';
 import 'package:flutter/material.dart';
-import 'home.navigation.dart';
-import 'search_navigation.dart';
-import 'setting_navigation.dart';
+import 'category/category_page.dart';
+import 'social/social_page_navigation .dart';
+import 'individual/individual_page.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key});
@@ -15,9 +17,12 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOption = <Widget>[
-    HomeScreen(),
-    SettingSrceen(),
-    SearchSrceen(),
+   ChatPageNavigation(),
+   ContactsPageNavigation(),
+   CategoryPageNavigation(),
+   SocialPageNavigation(),
+   IndividualPageNavigation(),
+
   ];
 
   void _onItemTapped(int index) {
@@ -35,21 +40,29 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Trang chủ',
+            icon: Icon(Icons.chat),
+            label: 'Tin nhắn',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Tìm kiếm',
+            icon: Icon(Icons.contact_emergency),
+            label: 'Danh bạ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Cài đặt',
+            icon: Icon(Icons.category),
+            label: 'Khám phá',
+          ),
+           BottomNavigationBarItem(
+            icon: Icon(Icons.lock_clock),
+            label: 'Nhật ký',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Cá nhân',
           )
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 245, 187, 0),
-        unselectedItemColor: const Color.fromARGB(255, 117, 2, 218),
+        selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+        unselectedItemColor: const Color.fromARGB(255, 116, 116, 116),
         onTap: _onItemTapped,
       ),
     );

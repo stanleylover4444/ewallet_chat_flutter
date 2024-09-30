@@ -180,10 +180,10 @@ class _FormExampleState extends State<FormExample> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Bạn chưa có tài khoản  ?"),
+                const Text("Bạn chưa có tài khoản ?"),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(
+                    Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
                         builder: (context) => const RegisterPager(),
                       ),

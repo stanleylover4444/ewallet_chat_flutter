@@ -1,5 +1,6 @@
 
-import 'package:chatbot_flutter/pages/login/introduce_page.dart';
+
+import 'package:chatbot_flutter/pages/main/bottomnav/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
 
-      home:  IntroducePage(), // Đặt WelcomePage vào thuộc tính body
+      home:  BottomNavigationBarWidget(), 
     );
   }
 }
