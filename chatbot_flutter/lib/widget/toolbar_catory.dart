@@ -1,8 +1,9 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/scanqr_page.dart';
+import 'package:chatbot_flutter/pages/main/bottomnav/chat/scan_qr_page.dart';
 import 'package:flutter/material.dart';
 
-class CustomCatoryToolbar extends StatelessWidget implements PreferredSizeWidget {
-       CustomCatoryToolbar({super.key});
+class CustomCatoryToolbar extends StatelessWidget
+    implements PreferredSizeWidget {
+  CustomCatoryToolbar({super.key});
 
   final TextEditingController _searchController = TextEditingController();
 
@@ -14,9 +15,7 @@ class CustomCatoryToolbar extends StatelessWidget implements PreferredSizeWidget
         children: [
           IconButton(
             icon: const Icon(Icons.search, color: Colors.white),
-            onPressed: () {
-              // Xử lý khi nhấn vào biểu tượng tìm kiếm
-            },
+            onPressed: () {},
           ),
           Expanded(
             child: TextField(
@@ -36,17 +35,16 @@ class CustomCatoryToolbar extends StatelessWidget implements PreferredSizeWidget
       actions: [
         Row(
           children: [
-              IconButton(
-              icon: const Icon(Icons.qr_code_scanner, color: Color.fromARGB(255, 255, 255, 255)),
+            IconButton(
+              icon: const Icon(Icons.qr_code_scanner,
+                  color: Color.fromARGB(255, 255, 255, 255)),
               onPressed: () {
-            
-               Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) =>  const ScanqrPage(),
-                      ),
-                    );
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ScanQrPage(),
+                  ),
+                );
               },
-              
             ),
           ],
         ),

@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Chờ 3 giây rồi chuyển đến IntroducePage
+ 
     Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const IntroducePage()),
@@ -31,8 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Lottie.asset('images/5.json'),
-            // const SizedBox(height: 20),
-            // const CircularProgressIndicator(),
           ],
         ),
       ),

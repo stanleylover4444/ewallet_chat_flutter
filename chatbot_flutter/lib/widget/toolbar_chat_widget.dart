@@ -1,7 +1,7 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/addfriend_page.dart';
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/creategroup.dart';
+import 'package:chatbot_flutter/pages/main/bottomnav/chat/add_friend_page.dart';
+import 'package:chatbot_flutter/pages/main/bottomnav/chat/create_group_page.dart';
 import 'package:chatbot_flutter/pages/main/bottomnav/chat/mycloud_page.dart';
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/scanqr_page.dart';
+import 'package:chatbot_flutter/pages/main/bottomnav/chat/scan_qr_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomChatToolbar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,9 +17,7 @@ class CustomChatToolbar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           IconButton(
             icon: const Icon(Icons.search, color: Colors.white),
-            onPressed: () {
-              // Xử lý khi nhấn vào biểu tượng tìm kiếm
-            },
+            onPressed: () {},
           ),
           Expanded(
             child: TextField(
@@ -42,46 +40,43 @@ class CustomChatToolbar extends StatelessWidget implements PreferredSizeWidget {
             IconButton(
               icon: const Icon(Icons.qr_code_scanner, color: Colors.white),
               onPressed: () {
-                   Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) =>  const ScanqrPage(),
-                      ),
-                    );
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ScanQrPage(),
+                  ),
+                );
               },
             ),
             PopupMenuButton<String>(
               icon: const Icon(Icons.add, color: Colors.white),
-              color: Colors.white, // Đặt màu nền cho popup menu
-              onSelected: (value) 
-                 {
-               
+              color: Colors.white,
+              onSelected: (value) {
                 switch (value) {
                   case 'Item 1':
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) =>  const AddfriendPage(),
+                        builder: (context) => const AddFriendPage(),
                       ),
                     );
-                  
+
                     break;
                   case 'Item 2':
-                   Navigator.of(context).push(
+                    Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) =>  const Creategroup(),
+                        builder: (context) => const Creategroup(),
                       ),
                     );
-                  
+
                     break;
                   case 'Item 3':
-                   Navigator.of(context).push(
+                    Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) =>  const MycloudPage(),
+                        builder: (context) => const MycloudPage(),
                       ),
                     );
-                  
+
                     break;
                 }
-             
               },
               itemBuilder: (BuildContext context) {
                 return [
@@ -89,9 +84,12 @@ class CustomChatToolbar extends StatelessWidget implements PreferredSizeWidget {
                     value: 'Item 1',
                     child: Row(
                       children: [
-                        Icon(Icons.person_add, color: Color.fromARGB(255, 0, 0, 0)) , 
+                        Icon(Icons.person_add,
+                            color: Color.fromARGB(255, 0, 0, 0)),
                         SizedBox(width: 8),
-                        Text('Thêm bạn', style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
+                        Text('Thêm bạn',
+                            style:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
                       ],
                     ),
                   ),
@@ -99,9 +97,12 @@ class CustomChatToolbar extends StatelessWidget implements PreferredSizeWidget {
                     value: 'Item 2',
                     child: Row(
                       children: [
-                        Icon(Icons.group_add, color: Color.fromARGB(255, 0, 0, 0)), // Thay bằng icon tương ứng
+                        Icon(Icons.group_add,
+                            color: Color.fromARGB(255, 0, 0, 0)),
                         SizedBox(width: 8),
-                        Text('Tạo nhóm', style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))), // Đặt màu cho text
+                        Text('Tạo nhóm',
+                            style:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
                       ],
                     ),
                   ),
@@ -109,15 +110,17 @@ class CustomChatToolbar extends StatelessWidget implements PreferredSizeWidget {
                     value: 'Item 3',
                     child: Row(
                       children: [
-                        Icon(Icons.cloud, color: Color.fromARGB(255, 0, 0, 0)), // Thay bằng icon tương ứng
+                        Icon(Icons.cloud, color: Color.fromARGB(255, 0, 0, 0)),
                         SizedBox(width: 8),
-                        Text('Icoud của tôi', style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))), // Đặt màu cho text
+                        Text('Icoud của tôi',
+                            style:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
                       ],
                     ),
                   ),
                 ];
               },
-              offset: const Offset(0, 50), // Điều chỉnh vị trí mở của popup menu
+              offset: const Offset(0, 50),
             ),
           ],
         ),

@@ -1,7 +1,8 @@
 import 'package:chatbot_flutter/pages/main/bottomnav/individual/setting_page.dart';
 import 'package:flutter/material.dart';
 
-class CustomIndividualToolbar extends StatelessWidget implements PreferredSizeWidget {
+class CustomIndividualToolbar extends StatelessWidget
+    implements PreferredSizeWidget {
   CustomIndividualToolbar({super.key});
 
   final TextEditingController _searchController = TextEditingController();
@@ -14,9 +15,7 @@ class CustomIndividualToolbar extends StatelessWidget implements PreferredSizeWi
         children: [
           IconButton(
             icon: const Icon(Icons.search, color: Colors.white),
-            onPressed: () {
-              // Xử lý khi nhấn vào biểu tượng tìm kiếm
-            },
+            onPressed: () {},
           ),
           Expanded(
             child: TextField(
@@ -37,13 +36,14 @@ class CustomIndividualToolbar extends StatelessWidget implements PreferredSizeWi
         Row(
           children: [
             IconButton(
-              icon: const Icon(Icons.settings, color: Color.fromARGB(255, 255, 255, 255)),
+              icon: const Icon(Icons.settings,
+                  color: Color.fromARGB(255, 255, 255, 255)),
               onPressed: () {
-             Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) =>  const SettingPage(),
-                      ),
-                    );
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SettingPage(),
+                  ),
+                );
               },
             ),
           ],

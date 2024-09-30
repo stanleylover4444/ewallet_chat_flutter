@@ -1,7 +1,8 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/addfriend_page.dart';
+import 'package:chatbot_flutter/pages/main/bottomnav/chat/add_friend_page.dart';
 import 'package:flutter/material.dart';
 
-class CustomConTactsToolbar extends StatelessWidget implements PreferredSizeWidget {
+class CustomConTactsToolbar extends StatelessWidget
+    implements PreferredSizeWidget {
   CustomConTactsToolbar({super.key});
 
   final TextEditingController _searchController = TextEditingController();
@@ -37,13 +38,14 @@ class CustomConTactsToolbar extends StatelessWidget implements PreferredSizeWidg
         Row(
           children: [
             IconButton(
-              icon: const Icon(Icons.person_add, color: Color.fromARGB(255, 255, 255, 255)),
+              icon: const Icon(Icons.person_add,
+                  color: Color.fromARGB(255, 255, 255, 255)),
               onPressed: () {
-               Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) =>  const AddfriendPage(),
-                      ),
-                    );
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const AddFriendPage(),
+                  ),
+                );
               },
             ),
           ],

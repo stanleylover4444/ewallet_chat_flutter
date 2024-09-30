@@ -232,7 +232,7 @@ class _FormExampleState extends State<FormExample> {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14,
-                      fontWeight: FontWeight.bold, // Chữ in đậm
+                      fontWeight: FontWeight.bold, 
                     ),
                   ),
                 )

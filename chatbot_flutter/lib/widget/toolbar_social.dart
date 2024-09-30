@@ -1,7 +1,8 @@
 import 'package:chatbot_flutter/pages/main/bottomnav/social/notification_page.dart';
 import 'package:flutter/material.dart';
 
-class CustomSocialToolbar extends StatelessWidget implements PreferredSizeWidget {
+class CustomSocialToolbar extends StatelessWidget
+    implements PreferredSizeWidget {
   CustomSocialToolbar({super.key});
 
   final TextEditingController _searchController = TextEditingController();
@@ -15,7 +16,7 @@ class CustomSocialToolbar extends StatelessWidget implements PreferredSizeWidget
           IconButton(
             icon: const Icon(Icons.search, color: Colors.white),
             onPressed: () {
-              // Xử lý khi nhấn vào biểu tượng tìm kiếm
+              
             },
           ),
           Expanded(
@@ -36,17 +37,16 @@ class CustomSocialToolbar extends StatelessWidget implements PreferredSizeWidget
       actions: [
         Row(
           children: [
-              IconButton(
-              icon: const Icon(Icons.notifications, color: Color.fromARGB(255, 255, 255, 255)),
+            IconButton(
+              icon: const Icon(Icons.notifications,
+                  color: Color.fromARGB(255, 255, 255, 255)),
               onPressed: () {
-                
-           Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) =>  const NotificationPage(),
-                      ),
-                    );
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationPage(),
+                  ),
+                );
               },
-              
             ),
           ],
         ),
