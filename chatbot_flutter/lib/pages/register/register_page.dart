@@ -62,6 +62,7 @@ class _FormExampleState extends State<FormExample> {
   String? _email;
   String? _password;
   String? _username;
+  String? _phoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +97,8 @@ class _FormExampleState extends State<FormExample> {
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Vui lòng nhập tên người dùng';
+                } else if (!RegExp(r'^[a-zA]{3,20}$').hasMatch(value)) {
+                  return 'Tên người dùng phải từ 3-20 ký tự ';
                 }
                 return null;
               },
@@ -106,13 +109,13 @@ class _FormExampleState extends State<FormExample> {
             const SizedBox(height: 16),
             TextFormField(
               decoration: InputDecoration(
-                labelText: 'Email',
+                labelText: 'Số điện thoại',
                 labelStyle: const TextStyle(
                   color: Color.fromARGB(255, 0, 0, 0),
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
-                prefixIcon: const Icon(Icons.email),
+                prefixIcon: const Icon(Icons.phone),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(color: Colors.black),
@@ -128,14 +131,14 @@ class _FormExampleState extends State<FormExample> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Vui lòng nhập email';
-                } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                  return 'Vui lòng nhập email hợp lệ';
+                  return 'Vui lòng nhập số điện thoại';
+                } else if (!RegExp(r'^\+?[0-9]{10,15}$').hasMatch(value)) {
+                  return 'Vui lòng nhập số điện thoại hợp lệ';
                 }
                 return null;
               },
               onSaved: (value) {
-                _email = value;
+                _phoneNumber = value;
               },
             ),
             const SizedBox(height: 16),

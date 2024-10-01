@@ -34,7 +34,7 @@ class _FoundScreenState extends State<FoundScreen> {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.min, 
             children: [
               const Text(
                 "Result: ",

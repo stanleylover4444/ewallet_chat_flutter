@@ -50,10 +50,12 @@ class _PinCodePageState extends State<PinCodeRegistePage> {
         ),
         title: Text(
           'Xác Nhận PIN Mới',
-          style: TextStyle(color: Colors.white, fontSize: 16 , fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ),
       body: Container(
+        
         child: Padding(
           padding: EdgeInsets.all(32.0),
           child: Form(
@@ -62,8 +64,11 @@ class _PinCodePageState extends State<PinCodeRegistePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Nhập PIN Mới',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black),
+                  'Vui lòng nhập mã xác thực',
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
                 SizedBox(height: 20),
                 Pinput(
@@ -86,7 +91,7 @@ class _PinCodePageState extends State<PinCodeRegistePage> {
                   ),
                   submittedPinTheme: defaultPinTheme.copyWith(
                     decoration: defaultPinTheme.decoration!.copyWith(
-                      border: Border.all(color: Colors.green),
+                      border: Border.all(color: const Color.fromARGB(255, 0, 0, 0)),
                     ),
                   ),
                   errorPinTheme: defaultPinTheme.copyBorderWith(
@@ -94,30 +99,26 @@ class _PinCodePageState extends State<PinCodeRegistePage> {
                   ),
                 ),
                 SizedBox(height: 40),
-               OutlinedButton(
+                OutlinedButton(
                   onPressed: () {
-                    
                     Fluttertoast.showToast(
-                        msg: "Đăng ký thành công!",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.green,
-                        textColor: Colors.white,
-                        fontSize: 16.0,
-                      );
-                 
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) =>
-                          
-                              const LoginPager(),
-                        ),
-                      );
-                    
+                      msg: "Đăng ký thành công!",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.green,
+                      textColor: Colors.white,
+                      fontSize: 16.0,
+                    );
+
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginPager(),
+                      ),
+                    );
                   },
                   child: const Text(
-                    "Đăng nhập",
+                    "Gửi",
                     style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255),
                       fontSize: 16,
@@ -131,7 +132,7 @@ class _PinCodePageState extends State<PinCodeRegistePage> {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Chúng tôi sẽ gửi mã PIN đến điện thoại của bạn.',
+                  'Chúng tôi sẽ gửi mã OTP đến điện thoại của bạn.',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.grey[600]),
                 ),

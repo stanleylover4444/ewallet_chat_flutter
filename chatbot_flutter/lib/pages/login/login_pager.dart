@@ -1,5 +1,5 @@
 import 'package:chatbot_flutter/widgets/bottomnav/bottom_navigation.dart';
-import 'package:chatbot_flutter/pages/register/register_pager.dart';
+import 'package:chatbot_flutter/pages/register/register_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPager extends StatelessWidget {
