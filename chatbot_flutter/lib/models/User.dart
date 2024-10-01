@@ -51,8 +51,7 @@
 //   final response = await http.get(
 //     Uri.parse('https://hayugo.edu.vn/api/User/persistLogin'),
 //     headers: {
-//       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgxIiwicm9sZSI6IlVzZXIiLCJuYmYiOjE3Mjc3NzY0NzcsImV4cCI6MTczMDM2ODQ3NywiaWF0IjoxNzI3Nzc2NDc3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiTGVhcmluZ0NoaW5lc2VWaWRlbyJ9.7lw15ptENHNJsyiGc5o_EM2ilvuQENM9py0KH88q29Y',
-//     },
+//        },
 //   );
 
 //   if (response.statusCode == 200) {

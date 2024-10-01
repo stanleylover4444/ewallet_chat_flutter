@@ -41,7 +41,7 @@ class _PinCodePageState extends State<PinCodeRegistePage> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
@@ -50,10 +50,10 @@ class _PinCodePageState extends State<PinCodeRegistePage> {
         ),
         title: Text(
           'Xác Nhận PIN Mới',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          style: TextStyle(color: Colors.white, fontSize: 16 , fontWeight: FontWeight.bold),
         ),
       ),
-      body: Center(
+      body: Container(
         child: Padding(
           padding: EdgeInsets.all(32.0),
           child: Form(

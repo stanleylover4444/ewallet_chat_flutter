@@ -62,7 +62,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         currentIndex: _selectedIndex,
         selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
         unselectedItemColor: const Color.fromARGB(255, 116, 116, 116),
-        onTap: _onItemTapped,
+        // onTap: _onItemTapped,
          showSelectedLabels: true,
         showUnselectedLabels: true,
       ),
