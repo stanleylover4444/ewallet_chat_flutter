@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/widget/toolbar_catory.dart';
+import 'package:chatbot_flutter/widgets/toolbar_catory.dart';
 import 'package:flutter/material.dart';
 
 class CategoryPageNavigation extends StatelessWidget {

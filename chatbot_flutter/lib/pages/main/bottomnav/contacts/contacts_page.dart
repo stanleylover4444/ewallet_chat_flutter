@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:chatbot_flutter/widget/toolbar_contacts.dart';
+import 'package:chatbot_flutter/widgets/toolbar_contacts.dart';
 import 'package:chatbot_flutter/pages/main/bottomnav/contacts/friend_page.dart';
 import 'package:chatbot_flutter/pages/main/bottomnav/contacts/group_page.dart';
 

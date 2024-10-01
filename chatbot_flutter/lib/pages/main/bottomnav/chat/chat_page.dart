@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/widget/toolbar_chat_widget.dart';
+import 'package:chatbot_flutter/widgets/toolbar_chat_widget.dart';
 import 'package:flutter/material.dart';
 
 class ChatPageNavigation extends StatelessWidget {

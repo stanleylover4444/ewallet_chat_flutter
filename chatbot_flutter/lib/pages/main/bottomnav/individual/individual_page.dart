@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/widget/toolbar_individual.dart';
+import 'package:chatbot_flutter/widgets/toolbar_individual.dart';
 import 'package:flutter/material.dart';
 
 class IndividualPageNavigation extends StatelessWidget {
