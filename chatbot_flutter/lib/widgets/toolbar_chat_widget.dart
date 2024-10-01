@@ -1,7 +1,7 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/add_friend_page.dart';
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/create_group_page.dart';
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/mycloud_page.dart';
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/scan_qr_page.dart';
+import 'package:chatbot_flutter/pages/main/contacts/add_friend_page.dart';
+import 'package:chatbot_flutter/pages/main/chat/create_group_page.dart';
+import 'package:chatbot_flutter/pages/main/chat/mycloud_page.dart';
+import 'package:chatbot_flutter/pages/qr/scan_qr_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomChatToolbar extends StatelessWidget implements PreferredSizeWidget {

@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/bottom_navigation.dart';
+import 'package:chatbot_flutter/widgets/bottomnav/bottom_navigation.dart';
 import 'package:chatbot_flutter/pages/register/register_pager.dart';
 import 'package:flutter/material.dart';
 

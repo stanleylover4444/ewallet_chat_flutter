@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/add_friend_page.dart';
+import 'package:chatbot_flutter/pages/main/contacts/add_friend_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomConTactsToolbar extends StatelessWidget

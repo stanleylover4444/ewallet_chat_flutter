@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/individual/setting_page.dart';
+import 'package:chatbot_flutter/pages/main/individual/setting_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomIndividualToolbar extends StatelessWidget

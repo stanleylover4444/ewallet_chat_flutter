@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/scan_qr_page.dart';
+import 'package:chatbot_flutter/pages/qr/scan_qr_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomCatoryToolbar extends StatelessWidget

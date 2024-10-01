@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/social/notification_page.dart';
+import 'package:chatbot_flutter/pages/main/social/notification_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomSocialToolbar extends StatelessWidget

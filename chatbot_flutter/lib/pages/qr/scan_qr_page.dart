@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/result_page.dart';
+import 'package:chatbot_flutter/pages/qr/result_qr_page.dart';
 import 'package:chatbot_flutter/widgets/qr_scanner_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';

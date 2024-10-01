@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       builder: DevicePreview.appBuilder,
-//1/10/2024 update
       debugShowCheckedModeBanner: false,
       home: SplashScreen(), 
     );

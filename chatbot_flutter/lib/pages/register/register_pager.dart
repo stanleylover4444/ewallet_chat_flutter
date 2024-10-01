@@ -1,6 +1,7 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:chatbot_flutter/pages/login/login_pager.dart';
+import 'package:chatbot_flutter/pages/register/pin_code_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -193,7 +194,7 @@ class _FormExampleState extends State<FormExample> {
 
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const LoginPager(),
+                          builder: (context) => const PinCodeRegistePage(),
                         ),
                       );
                     }

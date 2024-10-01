@@ -1,15 +1,14 @@
-import 'package:chatbot_flutter/pages/main/bottomnav/chat/chat_page.dart';
-import 'package:chatbot_flutter/pages/main/bottomnav/contacts/contacts_page.dart';
+import 'package:chatbot_flutter/pages/main/chat/chat_page.dart';
+import 'package:chatbot_flutter/pages/main/contacts/contacts_page.dart';
 import 'package:flutter/material.dart';
-import 'category/category_page.dart';
-import 'social/social_page_navigation .dart';
-import 'individual/individual_page.dart';
+import '../../pages/main/category/category_page.dart';
+import '../../pages/main/social/social_page_navigation .dart';
+import '../../pages/main/individual/individual_page.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key});
 
   @override
-   // ignore: library_private_types_in_public_api
    _BottomNavigationBarWidgetState createState() => _BottomNavigationBarWidgetState();
 }
 
@@ -64,6 +63,8 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
         unselectedItemColor: const Color.fromARGB(255, 116, 116, 116),
         onTap: _onItemTapped,
+         showSelectedLabels: true,
+        showUnselectedLabels: true,
       ),
     );
   }
