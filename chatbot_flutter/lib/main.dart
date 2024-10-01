@@ -1,5 +1,4 @@
 import 'package:chatbot_flutter/widget/splash_welcome.dart';
-
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       builder: DevicePreview.appBuilder,
-
+//1/10/2024 update
       debugShowCheckedModeBanner: false,
       home: SplashScreen(), 
     );
