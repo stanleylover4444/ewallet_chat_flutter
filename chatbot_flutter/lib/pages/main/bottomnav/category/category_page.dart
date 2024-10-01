@@ -6,7 +6,7 @@ class CategoryPageNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: CustomCatoryToolbar(),
       body: const Center(
         child: Text("danh mục"),
@@ -14,4 +14,3 @@ class CategoryPageNavigation extends StatelessWidget {
     );
   }
 }
-

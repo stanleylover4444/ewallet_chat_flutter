@@ -17,8 +17,7 @@ class IntroducePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Center(
-        
-        child:  Padding(
+        child: Padding(
           padding: const EdgeInsets.only(top: 100),
           child: Column(
             children: [
@@ -29,12 +28,14 @@ class IntroducePage extends StatelessWidget {
                   autoPlay: true, // Tự động chạy
                   enlargeCenterPage: true, // Phóng to hình giữa
                 ),
-                items: imgList.map((item) => Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                  child: Image.asset(item, fit: BoxFit.cover),
-                )).toList(),
+                items: imgList
+                    .map((item) => Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                          child: Image.asset(item, fit: BoxFit.cover),
+                        ))
+                    .toList(),
               ),
-          
+
               const SizedBox(height: 20),
               // Văn bản chào mừng
               const Text(
@@ -45,7 +46,7 @@ class IntroducePage extends StatelessWidget {
                   color: Color.fromARGB(255, 0, 0, 0),
                 ),
               ),
-          
+
               const Text(
                 "Of Future AI",
                 style: TextStyle(
@@ -63,35 +64,32 @@ class IntroducePage extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-          
+
               const SizedBox(height: 30),
-              
+
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: ElevatedButton(
-                    onPressed: () {
-                     
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const WelcomePager(),
-                          ),
-                        );
-                      },
-                    
-                    child: const Text(
-                      "Tiếp tục",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const WelcomePager(),
                       ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 40),
-                      backgroundColor: Colors.black,
+                    );
+                  },
+                  child: const Text(
+                    "Tiếp tục",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 40),
+                    backgroundColor: Colors.black,
+                  ),
+                ),
               ),
             ],
           ),

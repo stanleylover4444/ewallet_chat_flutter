@@ -149,9 +149,9 @@ class _FormExampleState extends State<FormExample> {
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child:  Container(
+              child: Container(
                 width: double.infinity,
-                child: ElevatedButton(
+                child: OutlinedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       Navigator.of(context).push(
@@ -170,7 +170,7 @@ class _FormExampleState extends State<FormExample> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
+                  style: OutlinedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 40),
                     backgroundColor: Colors.black,
                   ),

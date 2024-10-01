@@ -12,16 +12,14 @@ class RegisterPager extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back), 
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.of(context).pop(); 
+            Navigator.of(context).pop();
           },
         ),
       ),
-      backgroundColor:
-          const Color.fromARGB(255, 250, 250, 250), 
+      backgroundColor: const Color.fromARGB(255, 250, 250, 250),
       body: const SingleChildScrollView(
-    
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +178,7 @@ class _FormExampleState extends State<FormExample> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Container(
                 width: double.infinity,
-                child: ElevatedButton(
+                child: OutlinedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       Fluttertoast.showToast(
@@ -208,7 +206,7 @@ class _FormExampleState extends State<FormExample> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
+                  style: OutlinedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 40),
                     backgroundColor: Colors.black,
                   ),
@@ -232,7 +230,7 @@ class _FormExampleState extends State<FormExample> {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14,
-                      fontWeight: FontWeight.bold, 
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 )

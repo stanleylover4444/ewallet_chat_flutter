@@ -7,7 +7,7 @@ class ChatPageNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomChatToolbar(), 
+      appBar: CustomChatToolbar(),
       body: const Center(
         child: Text("Tin nhắn"),
       ),

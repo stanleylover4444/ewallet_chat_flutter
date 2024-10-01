@@ -127,12 +127,12 @@ class AddFriendPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  ElevatedButton(
+                  OutlinedButton(
                     onPressed: () {
                       print("Nút đã được nhấn");
                     },
                     child: const Icon(Icons.send),
-                    style: ElevatedButton.styleFrom(
+                    style: OutlinedButton.styleFrom(
                       iconColor: Colors.black,
                       backgroundColor: Colors.red,
                       shape: const CircleBorder(),
@@ -146,12 +146,12 @@ class AddFriendPage extends StatelessWidget {
               ),
               Row(
                 children: [
-                  ElevatedButton(
+                  OutlinedButton(
                     onPressed: () {
                       print("Nút đã được nhấn");
                     },
                     child: const Icon(Icons.scanner),
-                    style: ElevatedButton.styleFrom(
+                    style: OutlinedButton.styleFrom(
                       iconColor: Colors.black,
                       shape: const CircleBorder(),
                       padding: const EdgeInsets.all(16),

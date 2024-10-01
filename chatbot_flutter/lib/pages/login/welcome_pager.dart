@@ -11,15 +11,13 @@ class WelcomePager extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Welcome"), 
+          title: const Text("Welcome"),
         ),
         body: Container(
-       
           child: Padding(
-            padding: const EdgeInsets.all(20.0), 
+            padding: const EdgeInsets.all(20.0),
             child: Column(
-              mainAxisSize:
-                  MainAxisSize.min,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
                   "Welcome to",
@@ -38,7 +36,7 @@ class WelcomePager extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                ElevatedButton(
+                OutlinedButton(
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -53,12 +51,12 @@ class WelcomePager extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
-                  style: ElevatedButton.styleFrom(
+                  style: OutlinedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 40),
                       backgroundColor: Colors.black),
                 ),
                 const SizedBox(height: 10),
-                ElevatedButton(
+                OutlinedButton(
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -73,7 +71,7 @@ class WelcomePager extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
-                  style: ElevatedButton.styleFrom(
+                  style: OutlinedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 40),
                       backgroundColor: Colors.black),
                 ),

@@ -19,8 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       builder: DevicePreview.appBuilder,
+
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(), // Sử dụng SplashScreen làm trang chính
+      home: SplashScreen(), 
     );
   }
 }
