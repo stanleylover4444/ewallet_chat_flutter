@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/pages/register/pin_code_page.dart';
+
 import 'package:chatbot_flutter/widgets/splash_welcome.dart';
 // import 'package:chatbot_flutter/widgets/splash_welcome.dart';
 import 'package:flutter/material.dart';
