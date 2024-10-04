@@ -10,35 +10,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class HomePageWallet extends StatelessWidget {
+
+
+
+
+class HomePageWallet extends StatefulWidget {
   const HomePageWallet({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFD82D8B),
-          primary: const Color(0xFFD82D8B),
-        ),
-        iconButtonTheme: IconButtonThemeData(
-          style: IconButton.styleFrom(foregroundColor: Colors.white),
-        ),
-      ),
-      home: const MyHomePage(),
-    );
-  }
+  State<HomePageWallet> createState() => _MyHomePageState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<HomePageWallet> {
   late double minExtent;
   late double maxExtent;
   final ScrollController scrollController = ScrollController();
@@ -237,7 +220,7 @@ class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
               right: 0,
               child: Container(
                 height: minExtent,
-                color: transformColor(null, const Color(0xff395241), t, 2),
+                color: transformColor(null,  Colors.black, t, 2),
                 child: SafeArea(
                   bottom: false,
                   child: Row(
@@ -268,7 +251,7 @@ class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             ));
 
             // App bar transform position
-            iconBgrColor = transformColor(const Color(0xff395241), null, t, 2);
+            iconBgrColor = transformColor( Colors.black, null, t, 2);
             final iconSize = transform(44, 32, t, 2);
             final iconPadding = transform(8, 4, t, 2);
             final double cardWidth =

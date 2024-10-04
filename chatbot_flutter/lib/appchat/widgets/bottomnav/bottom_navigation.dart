@@ -1,27 +1,27 @@
 import 'package:chatbot_flutter/appchat/pages/main/chat/chat_page.dart';
 import 'package:chatbot_flutter/appchat/pages/main/contacts/contacts_page.dart';
+import 'package:chatbot_flutter/appchat/pages/main/social/social_page_navigation%20.dart';
 import 'package:flutter/material.dart';
 import '../../pages/main/category/category_page.dart';
-import '../../pages/main/social/social_page_navigation .dart';
+
 import '../../pages/main/individual/individual_page.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key});
 
   @override
-   _BottomNavigationBarWidgetState createState() => _BottomNavigationBarWidgetState();
+  _BottomNavigationBarWidgetState createState() => _BottomNavigationBarWidgetState();
 }
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOption = <Widget>[
-   ChatPageNavigation(),
-   ContactsPageNavigation(),
-   CategoryPageNavigation(),
-   SocialPageNavigation(),
-   IndividualPageNavigation(),
-
+    ChatPageNavigation(),
+    ContactsPageNavigation(),
+    CategoryPage(),
+    SocialPageNavigation(),
+    IndividualPageNavigation(),
   ];
 
   void _onItemTapped(int index) {
@@ -50,7 +50,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
             icon: Icon(Icons.category),
             label: 'Khám phá',
           ),
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.lock_clock),
             label: 'Nhật ký',
           ),
@@ -63,8 +63,9 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
         unselectedItemColor: const Color.fromARGB(255, 116, 116, 116),
         onTap: _onItemTapped,
-         showSelectedLabels: true,
+        showSelectedLabels: true,
         showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed, // Đặt kiểu thanh điều hướng là fixed
       ),
     );
   }
