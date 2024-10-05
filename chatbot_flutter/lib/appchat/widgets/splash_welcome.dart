@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:lottie/lottie.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class SplashWelcome extends StatefulWidget {
+  const SplashWelcome({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _SplashWelcomeState createState() => _SplashWelcomeState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashWelcomeState extends State<SplashWelcome> {
   @override
   void initState() {
     super.initState();

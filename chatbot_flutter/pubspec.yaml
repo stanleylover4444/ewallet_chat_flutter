@@ -43,6 +43,7 @@ dependencies:
   flutter_xlider: ^3.5.0
   shared_preferences: ^2.3.2
   http: ^1.2.2
+  image_picker: ^1.1.2
   # ádsad
   
   

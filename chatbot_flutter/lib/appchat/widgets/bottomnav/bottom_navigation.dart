@@ -21,7 +21,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
     ContactsPageNavigation(),
     CategoryPage(),
     SocialPageNavigation(),
-    IndividualPageNavigation(),
+    IndividualPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -33,7 +33,9 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
+        
         child: _widgetOption.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -66,6 +68,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         showSelectedLabels: true,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed, // Đặt kiểu thanh điều hướng là fixed
+          backgroundColor: Colors.white,
       ),
     );
   }
