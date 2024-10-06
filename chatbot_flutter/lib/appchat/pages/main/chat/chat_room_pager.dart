@@ -1,46 +1,74 @@
 import 'package:flutter/material.dart';
 
-
 class ChatRoomPage extends StatelessWidget {
-  const ChatRoomPage({super.key});
+  final String userName;
+  final String avatarUrl;
+
+  const ChatRoomPage({
+    super.key,
+    required this.userName,
+    required this.avatarUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
-      body: Padding(
-        padding: EdgeInsets.only(
-          top: 10,
-          bottom: MediaQuery.of(context).viewInsets.bottom > 0 ? 80 : 70,
-        ),
-        child: _buildChats(),
+      appBar: _buildAppBar(context),
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 70), // Tạo khoảng trống cho footer
+            child: _buildChats(), // Danh sách tin nhắn
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: _buildFooter(), // Footer cố định dưới đáy
+          ),
+        ],
       ),
-      floatingActionButton: _buildFooter(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 
-  AppBar _buildAppBar() {
+  AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-      centerTitle: true,
-      title: Column(
+      titleSpacing: 0,
+      backgroundColor: Colors.white,
+      elevation: 0,
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+      title: Row(
         children: [
-          Text("Username"),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          CircleAvatar(
+            backgroundImage: AssetImage(avatarUrl),
+          ),
+          const SizedBox(width: 15),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
-                Icons.check_circle,
-                size: 11,
-                color: Colors.green,
-              ),
-              const SizedBox(width: 3),
               Text(
-                "Online",
-                style: const TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.normal,
-                ),
+                userName,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.check_circle,
+                    size: 11,
+                    color: Colors.green,
+                  ),
+                  const SizedBox(width: 3),
+                  Text(
+                    "Online",
+                    style: const TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -48,9 +76,14 @@ class ChatRoomPage extends StatelessWidget {
       ),
       actions: [
         IconButton(
+          icon: const Icon(Icons.call),
           onPressed: () {},
-          icon: const Icon(Icons.more_horiz),
-        )
+        ),
+        IconButton(
+          icon: const Icon(Icons.videocam),
+          onPressed: () {},
+        ),
+        const SizedBox(width: 15),
       ],
     );
   }
@@ -69,25 +102,51 @@ class ChatRoomPage extends StatelessWidget {
 
   Widget _buildFooter() {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        color: Colors.grey[100],
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 5,
+          ),
+        ],
       ),
       child: Row(
         children: [
-          const SizedBox(width: 20),
+          IconButton(
+            onPressed: () {
+              // Xử lý thêm hình ảnh hoặc biểu tượng cảm xúc
+            },
+            icon: Icon(Icons.photo, color: Colors.blueGrey),
+          ),
+          IconButton(
+            onPressed: () {
+              // Xử lý mở keyboard emoji hoặc thêm ảnh
+            },
+            icon: Icon(Icons.emoji_emotions, color: Colors.blueGrey),
+          ),
+          const SizedBox(width: 10),
           Expanded(
             child: TextField(
               decoration: InputDecoration(
                 hintText: 'Write your message...',
                 border: InputBorder.none,
               ),
+              textInputAction: TextInputAction.send,
+              onSubmitted: (value) {
+                // Xử lý gửi tin nhắn
+              },
             ),
           ),
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.send, color: Colors.blue, size: 35),
+            onPressed: () {
+              // Xử lý gửi tin nhắn
+            },
+            icon: Icon(Icons.send, color: Colors.blue, size: 28),
           ),
         ],
       ),

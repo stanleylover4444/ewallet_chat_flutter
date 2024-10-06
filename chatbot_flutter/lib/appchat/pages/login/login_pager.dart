@@ -149,7 +149,7 @@ class _FormExampleState extends State<FormExample> {
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Container(
+              child:  Container(
                 width: double.infinity,
                 child: OutlinedButton(
                   onPressed: () {

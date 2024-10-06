@@ -1,4 +1,3 @@
-import 'package:chatbot_flutter/appchat/widgets/toolbar_individual.dart';
 import 'package:chatbot_flutter/ewallet/pages/home/home_page_wallet.dart';
 import 'package:flutter/material.dart';
 
@@ -82,32 +81,31 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
- appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.pop(context); 
-            },
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
           ),
-          title: Row(
-            children: [
-              Text(
-                "Cài đặt",
-                style: TextStyle(
-                  color: Colors.white, 
-                  fontSize: 16, 
-                  fontWeight: FontWeight.bold, 
-                  fontFamily:
-                      'Roboto', 
-                ),
-              ),
-            ],
-          ),
-          backgroundColor: Colors.black, // Màu nền của AppBar
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
+        title: Row(
+          children: [
+            Text(
+              "Cài đặt",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Roboto',
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.black, // Màu nền của AppBar
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -160,16 +158,17 @@ class _SettingPageState extends State<SettingPage> {
             children: [
               Text(
                 "Đăng xuất khỏi tài khoản này ?",
-                style: TextStyle(fontSize: 16 ,color: Colors.black  ,  fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 20),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 10),
                 child: OutlinedButton(
-                  onPressed: (){
-
-                  },
+                  onPressed: () {},
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -189,14 +188,13 @@ class _SettingPageState extends State<SettingPage> {
                     minimumSize: const Size(double.infinity, 40),
                     backgroundColor:
                         const Color.fromARGB(255, 255, 0, 0).withOpacity(0.2),
-                    side: BorderSide(
-                      color: Colors.white
-                    ),
+                    side: BorderSide(color: Colors.white),
                   ),
                 ),
-                
               ),
-              SizedBox(height: 30,)
+              SizedBox(
+                height: 30,
+              )
             ],
           ),
         );

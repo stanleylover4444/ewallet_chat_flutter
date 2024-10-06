@@ -81,12 +81,12 @@ class _FriendPageState extends State<FriendPage> {
   }
 
   void _onFriendTap(String friendName) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const ChatRoomPage(),
-      ),
-    );
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => const ChatRoomPage(),
+    //   ),
+    // );
   }
 
   Widget _buildItem(String title, IconData icon, int index) {

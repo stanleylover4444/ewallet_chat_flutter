@@ -148,7 +148,7 @@ class AddFriendPage extends StatelessWidget {
                 children: [
                   OutlinedButton(
                     onPressed: () {
-                      print("Nút đã được nhấn");
+                       print("Nút đã được nhấn");
                     },
                     child: const Icon(Icons.scanner),
                     style: OutlinedButton.styleFrom(
