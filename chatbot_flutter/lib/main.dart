@@ -1,5 +1,4 @@
-
-import 'package:chatbot_flutter/appchat/pages/main/chat/chat_page.dart';
+import 'package:chatbot_flutter/appchat/widgets/bottomnav/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      home: ChatPageNavigation(),
+      home: BottomNavigationBarWidget(),
     );
   }
 }

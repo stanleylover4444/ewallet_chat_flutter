@@ -1,28 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:chatbot_flutter/appchat/model/message.dart';
 
-class ChatRoomPage extends StatelessWidget {
+class ChatRoomPage extends StatefulWidget {
   final String userName;
   final String avatarUrl;
+  final List<MessageModel> messages;
 
   const ChatRoomPage({
     super.key,
     required this.userName,
     required this.avatarUrl,
+    required this.messages,
   });
+
+  @override
+  _ChatRoomPageState createState() => _ChatRoomPageState();
+}
+
+class _ChatRoomPageState extends State<ChatRoomPage> {
+  final TextEditingController _messageController = TextEditingController();
+  late List<MessageModel> _messages;
+  final ScrollController _scrollController = ScrollController(); // Thêm ScrollController
+
+  @override
+  void initState() {
+    super.initState();
+    _messages = List.from(widget.messages);
+
+    // Cuộn xuống khi hộp thoại được mở
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollToBottom();
+    });
+  }
+
+  void _scrollToBottom() {
+    // Cuộn xuống vị trí cuối cùng của ListView
+    if (_scrollController.hasClients) {
+      _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
+      backgroundColor: Colors.greenAccent,
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 70), // Tạo khoảng trống cho footer
-            child: _buildChats(), // Danh sách tin nhắn
+            padding: const EdgeInsets.only(bottom: 70),
+            child: _buildChats(),
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: _buildFooter(), // Footer cố định dưới đáy
+            child: _buildFooter(),
           ),
         ],
       ),
@@ -43,14 +74,14 @@ class ChatRoomPage extends StatelessWidget {
       title: Row(
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage(avatarUrl),
+            backgroundImage: AssetImage(widget.avatarUrl),
           ),
           const SizedBox(width: 15),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                userName,
+                widget.userName,
                 style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Row(
@@ -61,9 +92,9 @@ class ChatRoomPage extends StatelessWidget {
                     color: Colors.green,
                   ),
                   const SizedBox(width: 3),
-                  Text(
+                  const Text(
                     "Online",
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.normal,
                     ),
@@ -90,63 +121,117 @@ class ChatRoomPage extends StatelessWidget {
 
   Widget _buildChats() {
     return ListView.builder(
+      controller: _scrollController, 
+      itemCount: _messages.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          title: Text('Message $index'),
-          subtitle: Text('Content of message $index'),
+        final message = _messages[index];
+        final isMe = message.isMe;
+
+        return Container(
+          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          child: Row(
+            mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+            children: [
+              if (!isMe)
+                CircleAvatar(
+                  backgroundImage: AssetImage(widget.avatarUrl),
+                  radius: 20,
+                ),
+              const SizedBox(width: 8),
+              Flexible(
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: MediaQuery.of(context).size.width * 0.7,
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: isMe ? const Color.fromARGB(255, 165, 213, 253) : Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        message.message,
+                        style: TextStyle(
+                          color: isMe ? Colors.black : Colors.black87,
+                          fontSize: 16,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        message.time,
+                        style: TextStyle(
+                          color: Colors.black45,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         );
       },
-      itemCount: 10,
     );
+  }
+
+  void _sendMessage() {
+    final messageText = _messageController.text.trim();
+    if (messageText.isNotEmpty) {
+      setState(() {
+        _messages.add(MessageModel(
+          message: messageText,
+          time: DateTime.now().toString(), 
+          isMe: true,
+        ));
+        _messageController.clear();
+    
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _scrollToBottom();
+        });
+      });
+    }
   }
 
   Widget _buildFooter() {
     return Container(
+      color: Colors.white,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: Colors.grey[100],
-        borderRadius: BorderRadius.circular(30),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 5,
-          ),
-        ],
-      ),
       child: Row(
         children: [
           IconButton(
             onPressed: () {
-              // Xử lý thêm hình ảnh hoặc biểu tượng cảm xúc
+            
             },
-            icon: Icon(Icons.photo, color: Colors.blueGrey),
+            icon: Icon(Icons.photo, color: Colors.black),
           ),
           IconButton(
             onPressed: () {
-              // Xử lý mở keyboard emoji hoặc thêm ảnh
+             
             },
-            icon: Icon(Icons.emoji_emotions, color: Colors.blueGrey),
+            icon: Icon(Icons.emoji_emotions, color: Colors.black),
           ),
           const SizedBox(width: 10),
           Expanded(
             child: TextField(
+              controller: _messageController, 
               decoration: InputDecoration(
-                hintText: 'Write your message...',
+                hintText: 'Viết lời nhắn của bạn ...',
                 border: InputBorder.none,
               ),
               textInputAction: TextInputAction.send,
               onSubmitted: (value) {
-                // Xử lý gửi tin nhắn
+                _sendMessage(); 
               },
             ),
           ),
           IconButton(
             onPressed: () {
-              // Xử lý gửi tin nhắn
+              _sendMessage(); 
             },
-            icon: Icon(Icons.send, color: Colors.blue, size: 28),
+            icon: Icon(Icons.send, color: Colors.black, size: 28),
           ),
         ],
       ),

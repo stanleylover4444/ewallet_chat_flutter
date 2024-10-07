@@ -1,4 +1,3 @@
-import 'package:chatbot_flutter/appchat/pages/main/chat/chat_room_pager.dart';
 import 'package:chatbot_flutter/appchat/pages/main/contacts/friend_request_page.dart';
 import 'package:flutter/material.dart';
 
@@ -80,14 +79,19 @@ class _FriendPageState extends State<FriendPage> {
     }
   }
 
-  void _onFriendTap(String friendName) {
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) => const ChatRoomPage(),
-    //   ),
-    // );
-  }
+// void _onFriendTap(int index) {
+//   // Truyền dữ liệu bạn bè đến ChatRoomPage
+//   Navigator.push(
+//     context,
+//     MaterialPageRoute(
+//       builder: (context) => ChatRoomPage(
+//         userName: friends[index],
+//         avatarUrl: avatars[index],
+//         messages: chatDataList[index].messages, // Nếu bạn muốn gửi tin nhắn, bạn có thể cần định nghĩa chatDataList tương tự
+//       ),
+//     ),
+//   );
+// }
 
   Widget _buildItem(String title, IconData icon, int index) {
     return GestureDetector(
@@ -136,12 +140,12 @@ class _FriendPageState extends State<FriendPage> {
       itemBuilder: (context, index) {
         return ListTile(
           leading: CircleAvatar(
-            backgroundImage: AssetImage(avatars[index]), 
+            backgroundImage: AssetImage(avatars[index]),
             radius: 20,
           ),
           title: Text(friends[index]),
           onTap: () {
-            _onFriendTap(friends[index]);
+            // _onFriendTap(friends[index]);
           },
         );
       },
@@ -151,7 +155,7 @@ class _FriendPageState extends State<FriendPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, 
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [

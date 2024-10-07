@@ -1,27 +1,37 @@
+import 'package:chatbot_flutter/appchat/widgets/modal_create_post.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(AddPost());
-}
-
 class AddPost extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return AddPostPage();
+    return const AddPostPage(); // Không cần truyền showModal nữa
   }
 }
 
 class AddPostPage extends StatefulWidget {
-  const AddPostPage({Key? key, this.title = ''}) : super(key: key);
-
-  final String title;
+  const AddPostPage({Key? key}) : super(key: key);
 
   @override
   _AddPostState createState() => _AddPostState();
 }
 
 class _AddPostState extends State<AddPostPage> {
+  void _showModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return Padding(
+          padding: EdgeInsets.only(
+          ),
+          child: SafeArea(
+            child: ModalContent(),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -37,24 +47,30 @@ class _AddPostState extends State<AddPostPage> {
                   children: [
                     CircleAvatar(
                       radius: 20.0,
-                      backgroundColor: Color(0xFF1777F2),
+                      backgroundColor: const Color(0xFF1777F2),
                       child: CircleAvatar(
                         radius: 20.0,
                         backgroundColor: Colors.grey[200],
                         backgroundImage: NetworkImage(
-                            "https://qph.fs.quoracdn.net/main-qimg-11ef692748351829b4629683eff21100.webp"),
+                          "https://qph.fs.quoracdn.net/main-qimg-11ef692748351829b4629683eff21100.webp",
+                        ),
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(width: 20.0),
                 Expanded(
-                  child: TextField(
-                    decoration: InputDecoration.collapsed(
-                      hintText: 'What\'s on your mind?',
+                  child: GestureDetector(
+                    onTap: () => _showModal(context), // Gọi _showModal
+                    child: AbsorbPointer(
+                      child: TextField(
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'What\'s on your mind?',
+                        ),
+                      ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
             const Divider(height: 20.0, thickness: 0.5),
@@ -70,11 +86,9 @@ class _AddPostState extends State<AddPostPage> {
                       color: Colors.red,
                       size: 20,
                     ),
-                    label: Text('Live'),
+                    label: const Text('Live'),
                   ),
-                  const VerticalDivider(
-                    width: 8.0,
-                  ),
+                  const VerticalDivider(width: 8.0),
                   OutlinedButton.icon(
                     onPressed: () => print('Photo'),
                     icon: const Icon(
@@ -82,7 +96,7 @@ class _AddPostState extends State<AddPostPage> {
                       color: Colors.lightGreen,
                       size: 20,
                     ),
-                    label: Text('Photo'),
+                    label: const Text('Photo'),
                   ),
                   const VerticalDivider(width: 8.0),
                   OutlinedButton.icon(
@@ -92,11 +106,12 @@ class _AddPostState extends State<AddPostPage> {
                       color: Color.fromARGB(255, 57, 44, 93),
                       size: 20,
                     ),
-                    label: Text('Room'),
+                    label: const Text('Room'),
                   ),
                 ],
               ),
             ),
+            const SizedBox(height: 10),
           ],
         ),
       ),

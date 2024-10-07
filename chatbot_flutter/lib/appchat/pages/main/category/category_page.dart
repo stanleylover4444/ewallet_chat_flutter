@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/appchat/widgets/toolbar_catory.dart';
+import 'package:chatbot_flutter/appchat/widgets/appbar/toolbar_catory.dart';
 import 'package:chatbot_flutter/ewallet/pages/home/home_page_wallet.dart';
 import 'package:flutter/material.dart';
 

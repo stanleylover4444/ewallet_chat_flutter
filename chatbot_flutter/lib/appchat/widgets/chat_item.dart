@@ -1,4 +1,5 @@
-import 'package:chatbot_flutter/appchat/model/list_user_chat';
+
+import 'package:chatbot_flutter/appchat/model/list_user_chat.dart';
 import 'package:flutter/material.dart';
 
 class ChatItem extends StatelessWidget {
@@ -13,7 +14,7 @@ class ChatItem extends StatelessWidget {
       color: Colors.white,
       child: InkWell(
         
-        onTap: onTap, // Gọi callback khi nhấn vào item
+        onTap: onTap, 
         child: Container( 
            margin: EdgeInsets.symmetric(horizontal:10),
            padding: EdgeInsets.symmetric(vertical: 7),

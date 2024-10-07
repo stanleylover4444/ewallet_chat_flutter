@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/appchat/widgets/toolbar_social.dart';
+import 'package:chatbot_flutter/appchat/widgets/appbar/toolbar_social.dart';
 import 'package:flutter/material.dart';
 
 class NotificationPage extends StatelessWidget {

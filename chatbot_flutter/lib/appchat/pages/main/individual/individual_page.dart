@@ -1,5 +1,5 @@
 
-import 'package:chatbot_flutter/appchat/widgets/toolbar_individual.dart';
+import 'package:chatbot_flutter/appchat/widgets/appbar/toolbar_individual.dart';
 import 'package:chatbot_flutter/ewallet/pages/home/home_page_wallet.dart';
 import 'package:flutter/material.dart';
 
