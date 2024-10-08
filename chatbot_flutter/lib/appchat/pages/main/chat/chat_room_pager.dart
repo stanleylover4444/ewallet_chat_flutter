@@ -20,7 +20,8 @@ class ChatRoomPage extends StatefulWidget {
 class _ChatRoomPageState extends State<ChatRoomPage> {
   final TextEditingController _messageController = TextEditingController();
   late List<MessageModel> _messages;
-  final ScrollController _scrollController = ScrollController(); // Thêm ScrollController
+  final ScrollController _scrollController =
+      ScrollController(); // Thêm ScrollController
 
   @override
   void initState() {
@@ -44,13 +45,14 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       body: Stack(
         children: [
           Padding(
             padding: const EdgeInsets.only(bottom: 70),
             child: _buildChats(),
           ),
+          SizedBox(height: 20,),
           Align(
             alignment: Alignment.bottomCenter,
             child: _buildFooter(),
@@ -82,7 +84,8 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
             children: [
               Text(
                 widget.userName,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Row(
                 children: [
@@ -121,7 +124,7 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
 
   Widget _buildChats() {
     return ListView.builder(
-      controller: _scrollController, 
+      controller: _scrollController,
       itemCount: _messages.length,
       itemBuilder: (context, index) {
         final message = _messages[index];
@@ -130,7 +133,8 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
         return Container(
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           child: Row(
-            mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+            mainAxisAlignment:
+                isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
             children: [
               if (!isMe)
                 CircleAvatar(
@@ -145,7 +149,9 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
                   ),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: isMe ? const Color.fromARGB(255, 165, 213, 253) : Colors.white,
+                    color: isMe
+                        ? const Color.fromARGB(255, 165, 213, 253)
+                        : Colors.white,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Column(
@@ -183,11 +189,11 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
       setState(() {
         _messages.add(MessageModel(
           message: messageText,
-          time: DateTime.now().toString(), 
+          time: DateTime.now().toString(),
           isMe: true,
         ));
         _messageController.clear();
-    
+
         WidgetsBinding.instance.addPostFrameCallback((_) {
           _scrollToBottom();
         });
@@ -197,44 +203,42 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
 
   Widget _buildFooter() {
     return Container(
+      margin: EdgeInsets.only(top: 100),
+        child: Container(
       color: Colors.white,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       child: Row(
         children: [
           IconButton(
-            onPressed: () {
-            
-            },
+            onPressed: () {},
             icon: Icon(Icons.photo, color: Colors.black),
           ),
           IconButton(
-            onPressed: () {
-             
-            },
+            onPressed: () {},
             icon: Icon(Icons.emoji_emotions, color: Colors.black),
           ),
           const SizedBox(width: 10),
           Expanded(
             child: TextField(
-              controller: _messageController, 
+              controller: _messageController,
               decoration: InputDecoration(
                 hintText: 'Viết lời nhắn của bạn ...',
                 border: InputBorder.none,
               ),
               textInputAction: TextInputAction.send,
               onSubmitted: (value) {
-                _sendMessage(); 
+                _sendMessage();
               },
             ),
           ),
           IconButton(
             onPressed: () {
-              _sendMessage(); 
+              _sendMessage();
             },
             icon: Icon(Icons.send, color: Colors.black, size: 28),
           ),
         ],
       ),
-    );
+    ));
   }
 }

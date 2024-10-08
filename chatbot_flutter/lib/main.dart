@@ -5,12 +5,12 @@ import 'package:device_preview/device_preview.dart';
 void main() {
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => const MyApp(),
     ),
   );
 }
-
+//sdasd
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
