@@ -1,7 +1,7 @@
-import 'package:chatbot_flutter/appchat/model/list_user_chat.dart';
-import 'package:chatbot_flutter/appchat/model/message.dart';
+import 'package:chatbot_flutter/appchat/model/list_message_model.dart';
+import 'package:chatbot_flutter/appchat/model/message_model.dart';
 import 'package:chatbot_flutter/appchat/pages/main/chat/chat_room_pager.dart';
-import 'package:chatbot_flutter/appchat/widgets/chat_item.dart';
+import 'package:chatbot_flutter/appchat/widgets/chat_widget/chat_item.dart';
 import 'package:chatbot_flutter/appchat/widgets/appbar/toolbar_chat_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';

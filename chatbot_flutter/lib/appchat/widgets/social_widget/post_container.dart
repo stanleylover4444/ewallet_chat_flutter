@@ -1,82 +1,17 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:chatbot_flutter/appchat/model/post_model.dart';
+import 'package:chatbot_flutter/appchat/widgets/social_widget/profile_avatar.dart';
+import 'package:chatbot_flutter/config/palette.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(PostScreen());
-}
+class PostContainer extends StatelessWidget {
+  final Post post;
 
-class PostScreen extends StatelessWidget {
-  final String? userImage;
-  final String? username;
-  final String? caption;
-  final String? timeAgo;
-  final String? imageUrl;
-  final String? likes;
-  final String? comments;
-  final String? shares;
-  final String? profileImage;
-
-  PostScreen({
+  const PostContainer({
     Key? key,
-    this.userImage,
-    this.username,
-    this.caption,
-    this.timeAgo,
-    this.imageUrl,
-    this.likes,
-    this.comments,
-    this.shares,
-    this.profileImage,
+    required this.post,
   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: PostScreenPage(
-          userImage: userImage,
-          username: username,
-          caption: caption,
-          timeAgo: timeAgo,
-          imageUrl: imageUrl,
-          likes: likes,
-          comments: comments,
-          shares: shares,
-          profileImage: profileImage,
-        ),
-      ),
-    );
-  }
-}
-
-class PostScreenPage extends StatefulWidget {
-  final String? userImage;
-  final String? username;
-  final String? caption;
-  final String? timeAgo;
-  final String? imageUrl;
-  final String? likes;
-  final String? comments;
-  final String? shares;
-  final String? profileImage;
-
-  PostScreenPage({
-    Key? key,
-    this.userImage,
-    this.username,
-    this.caption,
-    this.timeAgo,
-    this.imageUrl,
-    this.likes,
-    this.comments,
-    this.shares,
-    this.profileImage,
-  }) : super(key: key);
-
-  @override
-  _PostScreenState createState() => _PostScreenState();
-}
-
-class _PostScreenState extends State<PostScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -95,32 +30,24 @@ class _PostScreenState extends State<PostScreenPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  _PostHeader(
-                    profileImage: widget.userImage ?? '',
-                    username: widget.username ?? '',
-                    timeAgo: widget.timeAgo ?? '',
-                  ),
+                  _PostHeader(post: post),
                   const SizedBox(height: 4.0),
-                  Text(widget.caption ?? ''),
-                  widget.imageUrl != null
+                  Text(post.caption),
+                  post.imageUrl != null
                       ? const SizedBox.shrink()
                       : const SizedBox(height: 6.0),
                 ],
               ),
             ),
-            widget.imageUrl != null
+            post.imageUrl != null
                 ? Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Image.network(widget.imageUrl!),
+                    child: CachedNetworkImage(imageUrl: post.imageUrl),
                   )
                 : const SizedBox.shrink(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: _PostStats(
-                likes: widget.likes ?? '0',
-                comments: widget.comments ?? '0',
-                share: widget.shares ?? '0',
-              ),
+              child: _PostStats(post: post),
             ),
           ],
         ),
@@ -130,45 +57,39 @@ class _PostScreenState extends State<PostScreenPage> {
 }
 
 class _PostHeader extends StatelessWidget {
-  final String profileImage;
-  final String username;
-  final String timeAgo;
+  final Post post;
 
   const _PostHeader({
     Key? key,
-    required this.profileImage,
-    required this.username,
-    required this.timeAgo,
+    required this.post,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        _AvatarImage(profileAvatarImage: profileImage),
+        ProfileAvatar(imageUrl: post.user.imageUrl),
         const SizedBox(width: 8.0),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                username,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                ),
+                post.user.name,
+                style: const TextStyle(fontWeight: FontWeight.w600),
               ),
               Row(
                 children: [
                   Text(
-                    '$timeAgo • ',
+                    '${post.timeAgo} • ',
                     style: TextStyle(
                       color: Colors.grey[600],
                       fontSize: 12.0,
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.public,
-                    color: Colors.grey[600],
+                    color: Colors.grey,
                     size: 12.0,
                   ),
                 ],
@@ -186,15 +107,11 @@ class _PostHeader extends StatelessWidget {
 }
 
 class _PostStats extends StatelessWidget {
-  final String likes;
-  final String comments;
-  final String share;
+  final Post post;
 
   const _PostStats({
     Key? key,
-    required this.likes,
-    required this.comments,
-    required this.share,
+    required this.post,
   }) : super(key: key);
 
   @override
@@ -205,8 +122,8 @@ class _PostStats extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(4.0),
-              decoration: const BoxDecoration(
-                color: Color(0xFF1777F2),
+              decoration: BoxDecoration(
+                color: Palette.facebookBlue,
                 shape: BoxShape.circle,
               ),
               child: const Icon(
@@ -218,24 +135,18 @@ class _PostStats extends StatelessWidget {
             const SizedBox(width: 4.0),
             Expanded(
               child: Text(
-                likes,
-                style: TextStyle(
-                  color: Colors.grey[600],
-                ),
+                '${post.likes}',
+                style: TextStyle(color: Colors.grey[600]),
               ),
             ),
             Text(
-              '$comments Comments',
-              style: TextStyle(
-                color: Colors.grey[600],
-              ),
+              '${post.comments} Comments',
+              style: TextStyle(color: Colors.grey[600]),
             ),
             const SizedBox(width: 8.0),
             Text(
-              '$share Shares',
-              style: TextStyle(
-                color: Colors.grey[600],
-              ),
+              '${post.shares} Shares',
+              style: TextStyle(color: Colors.grey[600]),
             ),
           ],
         ),
@@ -243,27 +154,27 @@ class _PostStats extends StatelessWidget {
         Row(
           children: [
             _PostButton(
-              icon: Icon(
-                Icons.add,
-                color: Colors.grey[600],
+              icon: const Icon(
+                Icons.thumb_up_outlined,
+                color: Colors.grey,
                 size: 20.0,
               ),
               label: 'Like',
               onTap: () => print('Like'),
             ),
             _PostButton(
-              icon: Icon(
-                Icons.add,
-                color: Colors.grey[600],
+              icon: const Icon(
+                Icons.comment_outlined,
+                color: Colors.grey,
                 size: 20.0,
               ),
               label: 'Comment',
               onTap: () => print('Comment'),
             ),
             _PostButton(
-              icon: Icon(
-                Icons.add,
-                color: Colors.grey[600],
+              icon: const Icon(
+                Icons.share_outlined,
+                color: Colors.grey,
                 size: 25.0,
               ),
               label: 'Share',
@@ -307,31 +218,6 @@ class _PostButton extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _AvatarImage extends StatelessWidget {
-  final String profileAvatarImage;
-
-  const _AvatarImage({
-    Key? key,
-    required this.profileAvatarImage,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: CircleAvatar(
-        radius: 20.0,
-        backgroundColor: Colors.grey[200],
-        backgroundImage: NetworkImage(
-          profileAvatarImage.isNotEmpty
-              ? profileAvatarImage
-              : "https://qph.fs.quoracdn.net/main-qimg-11ef692748351829b4629683eff21100.webp",
         ),
       ),
     );

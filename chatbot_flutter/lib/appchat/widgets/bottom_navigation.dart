@@ -1,10 +1,9 @@
 import 'package:chatbot_flutter/appchat/pages/main/chat/chat_page.dart';
 import 'package:chatbot_flutter/appchat/pages/main/contacts/contacts_page.dart';
-import 'package:chatbot_flutter/appchat/pages/main/social/social_page_navigation%20.dart';
+import 'package:chatbot_flutter/appchat/pages/main/social/social_page.dart';
 import 'package:flutter/material.dart';
-import '../../pages/main/category/category_page.dart';
-
-import '../../pages/main/individual/individual_page.dart';
+import '../pages/main/category/category_page.dart';
+import '../pages/main/individual/individual_page.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key});
@@ -20,7 +19,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
     ChatPageNavigation(),
     ContactsPageNavigation(),
     CategoryPage(),
-    SocialPageNavigation(),
+    SocialPage(),
     IndividualPage(),
   ];
 

@@ -1,5 +1,5 @@
 
-import 'package:chatbot_flutter/appchat/model/list_user_chat.dart';
+import 'package:chatbot_flutter/appchat/model/list_message_model.dart';
 import 'package:flutter/material.dart';
 
 class ChatItem extends StatelessWidget {

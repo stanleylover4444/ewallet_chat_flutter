@@ -1,5 +1,5 @@
 import 'package:chatbot_flutter/appchat/pages/qr/result_qr_page.dart';
-import 'package:chatbot_flutter/appchat/widgets/qr_scanner_overlay.dart';
+import 'package:chatbot_flutter/appchat/widgets/camera_widget/qr_scanner_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 

@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/appchat/model/message.dart';
+import 'package:chatbot_flutter/appchat/model/message_model.dart';
 
 class ChatModel {
   final String userName;

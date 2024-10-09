@@ -1,4 +1,4 @@
-import 'package:chatbot_flutter/appchat/widgets/bottomnav/bottom_navigation.dart';
+import 'package:chatbot_flutter/appchat/widgets/bottom_navigation.dart';
 import 'package:chatbot_flutter/appchat/pages/register/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -154,7 +154,7 @@ class _FormExampleState extends State<FormExample> {
                 child: OutlinedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigator.of(context).push(
+                      Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
                           builder: (context) =>
                               const BottomNavigationBarWidget(),

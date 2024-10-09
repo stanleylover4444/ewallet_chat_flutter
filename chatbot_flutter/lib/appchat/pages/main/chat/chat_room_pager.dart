@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chatbot_flutter/appchat/model/message.dart';
+import 'package:chatbot_flutter/appchat/model/message_model.dart';
 
 class ChatRoomPage extends StatefulWidget {
   final String userName;
