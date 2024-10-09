@@ -1,5 +1,6 @@
 import 'package:chatbot_flutter/appchat/pages/main/contacts/friend_request_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class FriendPage extends StatefulWidget {
   const FriendPage({super.key});
@@ -67,10 +68,6 @@ class _FriendPageState extends State<FriendPage> {
         });
         break;
       case 1:
-        setState(() {
-          _isSelectedList = [false, false, false];
-        });
-        break;
       case 2:
         setState(() {
           _isSelectedList = [false, false, false];
@@ -78,20 +75,6 @@ class _FriendPageState extends State<FriendPage> {
         break;
     }
   }
-
-// void _onFriendTap(int index) {
-//   // Truyền dữ liệu bạn bè đến ChatRoomPage
-//   Navigator.push(
-//     context,
-//     MaterialPageRoute(
-//       builder: (context) => ChatRoomPage(
-//         userName: friends[index],
-//         avatarUrl: avatars[index],
-//         messages: chatDataList[index].messages, // Nếu bạn muốn gửi tin nhắn, bạn có thể cần định nghĩa chatDataList tương tự
-//       ),
-//     ),
-//   );
-// }
 
   Widget _buildItem(String title, IconData icon, int index) {
     return GestureDetector(
@@ -135,18 +118,56 @@ class _FriendPageState extends State<FriendPage> {
   Widget _buildFriendList() {
     return ListView.builder(
       shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+      physics: NeverScrollableScrollPhysics(),
       itemCount: friends.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          leading: CircleAvatar(
-            backgroundImage: AssetImage(avatars[index]),
-            radius: 20,
+        return Slidable(
+          key: ValueKey(friends[index]),  // Sử dụng tên bạn bè làm key
+          controller: null,
+          closeOnScroll: true,
+          endActionPane: ActionPane(
+            motion: const DrawerMotion(),
+            children: [
+              SlidableAction(
+                onPressed: (context) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('${friends[index]} has been archived'),
+                    ),
+                  );
+                },
+                backgroundColor: const Color.fromARGB(255, 184, 54, 244),
+                foregroundColor: Colors.white,
+                icon: Icons.archive,
+                label: 'Nhật kí',
+              ),
+              SlidableAction(
+                onPressed: (context) {
+                  setState(() {
+                    friends.removeAt(index);
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('${friends[index]} has been deleted'),
+                    ),
+                  );
+                },
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+                icon: Icons.delete,
+                label: 'Xóa bạn bè',
+              ),
+            ],
           ),
-          title: Text(friends[index]),
-          onTap: () {
-            // _onFriendTap(friends[index]);
-          },
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage(avatars[index % avatars.length]),
+            ),
+            title: Text(friends[index]),
+            onTap: () {
+              // Xử lý khi nhấn vào tên bạn
+            },
+          ),
         );
       },
     );

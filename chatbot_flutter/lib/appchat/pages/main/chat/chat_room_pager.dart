@@ -28,14 +28,12 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
     super.initState();
     _messages = List.from(widget.messages);
 
-    // Cuộn xuống khi hộp thoại được mở
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _scrollToBottom();
     });
   }
 
   void _scrollToBottom() {
-    // Cuộn xuống vị trí cuối cùng của ListView
     if (_scrollController.hasClients) {
       _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
     }
@@ -52,7 +50,9 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
             padding: const EdgeInsets.only(bottom: 70),
             child: _buildChats(),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: _buildFooter(),
@@ -203,42 +203,42 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
 
   Widget _buildFooter() {
     return Container(
-      margin: EdgeInsets.only(top: 100),
+        margin: EdgeInsets.only(top: 100),
         child: Container(
-      color: Colors.white,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.photo, color: Colors.black),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.emoji_emotions, color: Colors.black),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: TextField(
-              controller: _messageController,
-              decoration: InputDecoration(
-                hintText: 'Viết lời nhắn của bạn ...',
-                border: InputBorder.none,
+          color: Colors.white,
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.photo, color: Colors.black),
               ),
-              textInputAction: TextInputAction.send,
-              onSubmitted: (value) {
-                _sendMessage();
-              },
-            ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.emoji_emotions, color: Colors.black),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: TextField(
+                  controller: _messageController,
+                  decoration: InputDecoration(
+                    hintText: 'Viết lời nhắn của bạn ...',
+                    border: InputBorder.none,
+                  ),
+                  textInputAction: TextInputAction.send,
+                  onSubmitted: (value) {
+                    _sendMessage();
+                  },
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  _sendMessage();
+                },
+                icon: Icon(Icons.send, color: Colors.black, size: 28),
+              ),
+            ],
           ),
-          IconButton(
-            onPressed: () {
-              _sendMessage();
-            },
-            icon: Icon(Icons.send, color: Colors.black, size: 28),
-          ),
-        ],
-      ),
-    ));
+        ));
   }
 }

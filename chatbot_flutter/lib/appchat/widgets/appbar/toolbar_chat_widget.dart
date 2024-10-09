@@ -118,6 +118,19 @@ class CustomChatToolbar extends StatelessWidget implements PreferredSizeWidget {
                       ],
                     ),
                   ),
+
+                  const PopupMenuItem<String>(
+                    value: 'Item 4',
+                    child: Row(
+                      children: [
+                        Icon(Icons.storage_outlined, color: Color.fromARGB(255, 0, 0, 0)),
+                        SizedBox(width: 8),
+                        Text('Kho lưu trữ',
+                            style:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
+                      ],
+                    ),
+                  ),
                 ];
               },
               offset: const Offset(0, 50),
