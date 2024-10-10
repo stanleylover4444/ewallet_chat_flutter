@@ -47,6 +47,10 @@ dependencies:
   flutter_slidable: ^3.1.1
   material_design_icons_flutter: ^7.0.7296
   photo_manager: ^3.5.0
+  icons_launcher: ^3.0.0
+  hive: ^4.0.0-dev.2
+  path_provider: ^2.1.0
+  get: ^4.6.6
   # ádsad
   
   
@@ -83,6 +87,9 @@ flutter:
   assets:
    - assets/icons/
    - assets/images/
+   - assets/lotties/13.json
+   - assets/lotties/11.json
+   - assets/lotties/12.json
    - assets/images/4.json
    - assets/images/5.json
    - assets/images/1.png

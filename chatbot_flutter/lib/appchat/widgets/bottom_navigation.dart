@@ -9,7 +9,8 @@ class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key});
 
   @override
-  _BottomNavigationBarWidgetState createState() => _BottomNavigationBarWidgetState();
+  _BottomNavigationBarWidgetState createState() =>
+      _BottomNavigationBarWidgetState();
 }
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
@@ -27,6 +28,8 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
     setState(() {
       _selectedIndex = index;
     });
+
+    // Pref.showOnboarding = false;
   }
 
   @override
@@ -34,7 +37,6 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        
         child: _widgetOption.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -66,8 +68,9 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         onTap: _onItemTapped,
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        type: BottomNavigationBarType.fixed, // Đặt kiểu thanh điều hướng là fixed
-          backgroundColor: Colors.white,
+        type:
+            BottomNavigationBarType.fixed, // Đặt kiểu thanh điều hướng là fixed
+        backgroundColor: Colors.white,
       ),
     );
   }

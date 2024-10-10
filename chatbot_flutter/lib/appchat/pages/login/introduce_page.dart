@@ -1,6 +1,6 @@
-import 'package:chatbot_flutter/appchat/pages/login/welcome_pager.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:get/get.dart';
 
 class IntroducePage extends StatelessWidget {
   const IntroducePage({super.key});
@@ -71,11 +71,12 @@ class IntroducePage extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: OutlinedButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const WelcomePager(),
-                      ),
-                    );
+                    // Navigator.of(context).push(
+                    //   MaterialPageRoute(
+                    //     builder: (context) => const WelcomePager(),
+                    //   ),
+                    // );
+                     Get.to(() => const IntroducePage());
                   },
                   child: const Text(
                     "Tiếp tục",

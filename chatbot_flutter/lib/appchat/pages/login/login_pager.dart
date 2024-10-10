@@ -1,6 +1,7 @@
 import 'package:chatbot_flutter/appchat/widgets/bottom_navigation.dart';
 import 'package:chatbot_flutter/appchat/pages/register/register_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPager extends StatelessWidget {
   const LoginPager({super.key});
@@ -154,12 +155,13 @@ class _FormExampleState extends State<FormExample> {
                 child: OutlinedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const BottomNavigationBarWidget(),
-                        ),
-                      );
+                      // Navigator.of(context).pushReplacement(
+                      //   MaterialPageRoute(
+                      //     builder: (context) =>
+                      //         const BottomNavigationBarWidget(),
+                      //   ),
+                      // );
+                       Get.off(() => const BottomNavigationBarWidget());
                     }
                   },
                   child: const Text(
@@ -183,11 +185,12 @@ class _FormExampleState extends State<FormExample> {
                 const Text("Bạn chưa có tài khoản ?"),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => const RegisterPager(),
-                      ),
-                    );
+                    // Navigator.of(context).pushReplacement(
+                    //   MaterialPageRoute(
+                    //     builder: (context) => const RegisterPager(),
+                    //   ),
+                    // );
+                     Get.to(() => const RegisterPager());
                   },
                   child: const Text(
                     "Đăng ký",

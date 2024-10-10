@@ -1,5 +1,6 @@
 import 'package:chatbot_flutter/appchat/pages/login/introduce_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'dart:async';
 import 'package:lottie/lottie.dart';
 
@@ -15,10 +16,8 @@ class _SplashWelcomeState extends State<SplashWelcome> {
   void initState() {
     super.initState();
  
-    Timer(const Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const IntroducePage()),
-      );
+    Future.delayed(const Duration(seconds: 5), () {
+      Get.off(() => const IntroducePage());
     });
   }
 

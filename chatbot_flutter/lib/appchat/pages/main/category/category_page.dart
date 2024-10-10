@@ -1,3 +1,4 @@
+import 'package:chatbot_flutter/appchat/pages/main/category/AI_page.dart';
 import 'package:chatbot_flutter/appchat/widgets/appbar/toolbar_catory.dart';
 import 'package:chatbot_flutter/ewallet/pages/home/home_page_wallet.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +32,13 @@ class _CategoryPageState extends State<CategoryPage> {
         });
         break;
       case 1:
-        setState(() {
-          _isSelectedList = [false, false, false];
+         Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  AiPage()),
+        ).then((_) {
+          setState(() {
+            _isSelectedList = [false, false, false];
+          });
         });
         break;
       case 2:
