@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatbot_flutter/appchat/model/story_model.dart';
 import 'package:chatbot_flutter/appchat/model/user_model.dart';
+import 'package:chatbot_flutter/appchat/pages/main/social/pick_item_upload_story_modal.dart';
 import 'package:chatbot_flutter/appchat/widgets/social_widget/profile_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:chatbot_flutter/config/palette.dart';
@@ -96,7 +97,7 @@ class _StoryCard extends StatelessWidget {
           top: 8.0,
           left: 8.0,
           child: isAddStory
-              ? _buildAddStoryButton()
+              ? _buildAddStoryButton(context)
               : ProfileAvatar(
                   imageUrl: story?.user.imageUrl ?? '',
                   hasBorder: !story!.isViewed, // Chắc chắn story không null tại đây
@@ -120,8 +121,12 @@ class _StoryCard extends StatelessWidget {
     );
   }
 
-  Widget _buildAddStoryButton() {
-    return Container(
+  Widget _buildAddStoryButton(BuildContext context) {
+    return 
+    GestureDetector(
+      onTap: () => _showItemUploadStoryModal(context),
+      child:     
+     Container(
       height: 40.0,
       width: 40.0,
       decoration: BoxDecoration(
@@ -133,8 +138,22 @@ class _StoryCard extends StatelessWidget {
         icon: const Icon(Icons.add),
         iconSize: 30.0,
         color: Palette.facebookBlue,
-        onPressed: () => print('Add to Story'),
+        onPressed: () =>_showItemUploadStoryModal(context),
       ),
+    ),
     );
   }
 }
+
+
+void _showItemUploadStoryModal(BuildContext context) {
+    showModalBottomSheet(
+      backgroundColor: Colors.black,
+      isScrollControlled: true,
+      context: context,
+      builder: (BuildContext context) {
+        return PickItemUploadStory();
+      },
+    );
+  }
+

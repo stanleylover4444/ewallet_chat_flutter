@@ -46,6 +46,7 @@ dependencies:
   image_picker: ^1.1.2
   flutter_slidable: ^3.1.1
   material_design_icons_flutter: ^7.0.7296
+  photo_manager: ^3.5.0
   # ádsad
   
   

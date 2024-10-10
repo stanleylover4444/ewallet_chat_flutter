@@ -210,7 +210,9 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  _messagesImg();
+                },
                 icon: Icon(Icons.photo, color: Colors.black),
               ),
               IconButton(
@@ -241,4 +243,7 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
           ),
         ));
   }
+}
+
+void _messagesImg() {
 }
